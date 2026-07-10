@@ -11,7 +11,8 @@ function App() {
     async function getData() {
       const res = await fetch(url)
       const data = await res.json();
-      console.log(data)
+      
+      setproducts(data);
       
     }
     getData();
@@ -20,6 +21,15 @@ function App() {
   return (
       <div className="ticks">
         <h1>http em react </h1>
+       <ul>
+  {products.map((product) => (
+    <li key={product.id}>
+      {product.name} R${product["price "]}
+    </li>
+  ))}
+</ul>
+
+        
       </div>
   )
 }
