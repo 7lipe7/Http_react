@@ -45,21 +45,23 @@ function App() {
   //   getData();
   // }, [])
    
-  const {data: items} = useFetch(url)
-
-       
-
+  const { data: items, loading, error } = useFetch(url);
 
   return (
     <div className="ticks">
       <h1>http em react </h1>
+
+      {loading && <p>carregando...</p>}
+      {error && <p>erro ao carregar: {error.message}</p>}
+
       <ul>
-        { items && items.map((product) => (
+        {(items ?? []).map((product) => (
           <li key={product.id}>
             {product.name} R${product.price}
           </li>
         ))}
       </ul>
+
       <div className="add-product">
         <form onSubmit={envio}>
           <label className='form'>
