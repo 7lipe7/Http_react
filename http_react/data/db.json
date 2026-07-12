@@ -25,6 +25,7 @@
       "price": "19.99",
       "id": "cR9S0ZePYA4"
     }
+   
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }
